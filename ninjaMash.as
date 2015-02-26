@@ -15,6 +15,8 @@ package
 		private var speed:int = 5;
 		private var jump:int;
 		
+		private var doublePressTime:int = 0;
+		
 		public function ninjaMash() 
 		{
 			//setup listeners to listen for when a key is pressed and released
@@ -29,17 +31,13 @@ package
 		{
 			Player.x += speed;
 			Player.y += jump;
-			if (key == 0)
-			{
-				speed -= (speed * 2);
-			}
-			if (key == 1)
-			{
-				speed -= (speed * 2);
-			}
 			if (key == 2)
+			{	
+				jump += 5;
+			}
+			if (doublePressTime <= 0)
 			{
-				
+				key = 0;
 			}
 		}
 		
@@ -48,6 +46,8 @@ package
 			if (e.keyCode == 32)
 			{
 				key += 1;
+				speed -= (speed * 2);
+				//doublePresstime + time
 			}
 		}
 		
