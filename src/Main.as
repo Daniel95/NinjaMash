@@ -34,6 +34,12 @@ package
 			chest = new Chest();
 			this.addChild(chest);
 			
+			chest.x = 1200;
+			chest.y = 300;
+			
+			player.x = 300;
+			player.y = 300;
+			
 			for (var i:int = 0; i < 10; i++)
 			{
 				var enemy:Enemy = new Enemy();
@@ -42,12 +48,7 @@ package
 				enemy.x = Math.random() * stage.stageWidth;
 				enemy.y = Math.random() * stage.stageHeight;
 			}
-			
-			player.x = 300;
-			player.y = 300;
-			
-			chest.x = 500;
-			chest.y = 300;
+
 			//chests = new Vector.<Chest>();
 			
 			//createChests();
