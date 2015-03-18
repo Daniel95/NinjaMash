@@ -17,7 +17,7 @@ package
 		private var key:int;
 		private var speed:int = 5;
 		private var jump:int;
-		private var player:PlayerArt;
+		public static var player:PlayerArt;
 		//private var tankTurret:TankTurretArt;
 		
 		public function Player() 
@@ -40,7 +40,7 @@ package
 			this.y -= jump;
 			if (key == 2)
 			{	
-				jump += 5;
+				//jump += 5;
 			}
 			/*
 			if (doublePressTimer <= 0)//als je niet binnen zoveel tijd weer klikt
