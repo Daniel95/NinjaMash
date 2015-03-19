@@ -29,7 +29,7 @@ package
 			this.addChild(player);
 			
 			this.addEventListener(Event.ADDED_TO_STAGE, init);
-			this.scaleX = this.scaleY = 1;
+			this.scaleX = this.scaleY = 0.2;//de groote van het de player
 		}		
 		private function init(e:Event):void 
 		{
