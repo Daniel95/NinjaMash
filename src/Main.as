@@ -35,17 +35,15 @@ package
 				chests.push(new Chest());
 				this.addChild(chests[i]);
 			
-				chests[i].x = 200 * (i+1);
+				chests[i].x = 270 * (i+1);
 				chests[i].y = 300;
 			}
 			
 			player = new Player(chests);//hier geven we de chests vector mee aan player
 			this.addChild(player);
 			
-			player.x = 300;
+			player.x = 350;
 			player.y = 300;
-			
-			//createChests();
 		}
 	}
 

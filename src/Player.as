@@ -29,6 +29,7 @@ package
 			this.addChild(player);
 			
 			this.addEventListener(Event.ADDED_TO_STAGE, init);
+			this.scaleX = this.scaleY = 1;
 		}		
 		private function init(e:Event):void 
 		{
@@ -38,8 +39,10 @@ package
 		}		
 			
 		override public function loop(e:Event):void 
-		{		
-			this.x += speed;
+		{	//het bewegen van de speler wordt in charBase gedaan, in script gebeurt nu nog niks kwa gameplay
+			//mijn gefaalde poging tot springen:
+			/*
+			//this.x += speed;
 			this.y -= jump;
 			if (key == 2)
 			{	
@@ -51,26 +54,24 @@ package
 				key = 0;
 			}
 			*/
-			
-			super.loop(e);//zorgt ervoor dat de code in charbase loop ook nog wordt uitgevoert	
+			super.loop(e);//zorgt ervoor dat de code in charbase loop ook nog wordt uitgevoert, deze loop functie gaat door op de loop functie van CharBase	
 		}
 		private function onKeyUp(e:KeyboardEvent):void 
 		{
 			if (e.keyCode != 32)
 			{
-				
+				//?
 			}
 		}		
 		private function onKeyDown(e:KeyboardEvent):void 
 		{
-			if (e.keyCode == 32)//space
+			if (e.keyCode == 32)//Hier moet springen komen
 			{
 				key += 1;
-				speed -= (speed * 2);//turns around
-				//doublePressTimer.start();
+				speed -= (speed * 2);
 			}
 		}
-		override public function destroy():void
+		override public function destroy():void//als de speler dood gaat:
 		{
 			stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 			stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyUp);
