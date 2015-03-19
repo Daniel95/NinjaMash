@@ -39,21 +39,8 @@ package
 		}		
 			
 		override public function loop(e:Event):void 
-		{	//het bewegen van de speler wordt in charBase gedaan, in script gebeurt nu nog niks kwa gameplay
-			//mijn gefaalde poging tot springen:
-			/*
-			//this.x += speed;
-			this.y -= jump;
-			if (key == 2)
-			{	
-				//jump += 5;
-			}
-			/*
-			if (doublePressTimer <= 0)//als je niet binnen zoveel tijd weer klikt
-			{
-				key = 0;
-			}
-			*/
+		{	//het links & rechts bewegen van de speler wordt in charBase gedaan, in script gebeurt nu nog niks kwa gameplay
+
 			super.loop(e);//zorgt ervoor dat de code in charbase loop ook nog wordt uitgevoert, deze loop functie gaat door op de loop functie van CharBase	
 		}
 		private function onKeyUp(e:KeyboardEvent):void 
