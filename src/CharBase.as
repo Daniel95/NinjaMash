@@ -48,7 +48,7 @@ package
 			{
 				if (this.hitTestObject(_chests[i]))
 				{
-					speed -= (speed * 2);//turns around
+					speed -= (speed * 4);//turns around
 				}
 			}
 			
