@@ -15,9 +15,13 @@ package
 		
 		public var lives:int = 6;
 		private var speed:int = 5;
+		private var _chests:Vector.<Chest>;
 		
-		public function CharBase() 
+		public function CharBase(chests:Vector.<Chest> = null) 
 		{
+			_chests = chests;
+			trace(chests);
+			
 			this.addEventListener(Event.ENTER_FRAME, loop);
 			//tankBody = new TankBodyArt();
 			//this.addChild(tankBody);
@@ -39,11 +43,15 @@ package
 		}
 		public function deadEnd():void
 		{
-			if (Player.player.hitTestObject(Main.chest))
+			var length:int = _chests.length;
+			for (var i:int = 0; i < length;i++ )
 			{
-				trace("je;");
-				speed -= (speed * 4);//turns around
+				if (this.hitTestObject(_chests[i]))
+				{
+					speed -= (speed * 2);//turns around
+				}
 			}
+			
 		}
 	}
 

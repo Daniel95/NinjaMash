@@ -18,10 +18,13 @@ package
 		private var speed:int = 5;
 		private var jump:int;
 		public static var player:PlayerArt;
-		//private var tankTurret:TankTurretArt;
 		
-		public function Player() 
+		public function Player(chests:Vector.<Chest> = null):void
 		{
+			super(chests);//geeft de chests vector mee aan charbase 
+			
+			if (chests == null) throw new Error("geen Vector chests meegegeven aan subclass van CharBase");
+			
 			player = new PlayerArt();
 			this.addChild(player);
 			
@@ -49,7 +52,7 @@ package
 			}
 			*/
 			
-			super.loop(e);//zorgt ervoor dat de code in tankbase loop ook nog wordt uitgevoert	
+			super.loop(e);//zorgt ervoor dat de code in charbase loop ook nog wordt uitgevoert	
 		}
 		private function onKeyUp(e:KeyboardEvent):void 
 		{

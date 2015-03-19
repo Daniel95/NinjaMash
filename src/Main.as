@@ -13,8 +13,7 @@ package
 	{
 		public static var player:Player;
 		private var enemies:Array;
-		//public static var chests:Vector.<Chest>;
-		public static var chest:Chest;
+		private var chests:Vector.<Chest>;
 		
 		public function Main():void 
 		{
@@ -28,28 +27,23 @@ package
 			// entry point
 			enemies = new Array();
 			
-			player = new Player();
+			chests = new Vector.<Chest>();
+			
+			
+			for (var i:int = 0; i < 3; i++)
+			{
+				chests.push(new Chest());
+				this.addChild(chests[i]);
+			
+				chests[i].x = 200 * (i+1);
+				chests[i].y = 300;
+			}
+			
+			player = new Player(chests);//hier geven we de chests vector mee aan player
 			this.addChild(player);
-			
-			chest = new Chest();
-			this.addChild(chest);
-			
-			chest.x = 1200;
-			chest.y = 300;
 			
 			player.x = 300;
 			player.y = 300;
-			
-			for (var i:int = 0; i < 10; i++)
-			{
-				var enemy:Enemy = new Enemy();
-				enemies.push(enemy);
-				addChild(enemy);
-				enemy.x = Math.random() * stage.stageWidth;
-				enemy.y = Math.random() * stage.stageHeight;
-			}
-
-			//chests = new Vector.<Chest>();
 			
 			//createChests();
 		}
